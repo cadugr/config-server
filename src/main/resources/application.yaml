@@ -1,0 +1,21 @@
+server:
+  port: 8888
+  
+spring:
+  application:
+    name: ead-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/cadugr/ead-config-server-repo
+          default-label: main
+          username: cadugr
+          password: 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  
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: 'http://localhost:8761/eureka'
+  instance:
+    hostname: localhost         
