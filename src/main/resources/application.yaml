@@ -11,11 +11,19 @@ spring:
           uri: https://github.com/cadugr/ead-config-server-repo
           default-label: main
           username: cadugr
-          password: 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  
+          password: ${GIT_PASSWORD}
+          
+ead:
+  configServer:
+    username: configserver
+    password: 'ead123cs'
+  serviceRegistry:
+    username: serviceregistry
+    password: 'ead123sr'          
     
 eureka:
   client:
     serviceUrl:
-      defaultZone: 'http://localhost:8761/eureka'
+      defaultZone: 'http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka'
   instance:
     hostname: localhost         
